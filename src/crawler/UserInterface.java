@@ -200,12 +200,12 @@ public void splash(){
         //set button sizes
         
         NorthWest.setPreferredSize(new Dimension(50,50));
-        North.setPreferredSize(new Dimension(400,50));
+        North.setPreferredSize(new Dimension(50,50));
         NorthEast.setPreferredSize(new Dimension(50,50));
-        West.setPreferredSize(new Dimension(50,400));
-        East.setPreferredSize(new Dimension(50,400));
+        West.setPreferredSize(new Dimension(50,50));
+        East.setPreferredSize(new Dimension(50,50));
         SouthWest.setPreferredSize(new Dimension(50,50));
-        South.setPreferredSize(new Dimension(400,50));
+        South.setPreferredSize(new Dimension(50,50));
         SouthEast.setPreferredSize(new Dimension(50,50));
         
         Font f = new Font(Font.SANS_SERIF, 8, 10);
@@ -258,10 +258,10 @@ public void splash(){
         EastHeader.setBorder(BorderFactory.createLineBorder(Color.black));
         EastFooter.setBorder(BorderFactory.createLineBorder(Color.black));
         //initialize text of labels
-        welcome.setText("Map Viewer");
-        heightSpace.setText("Y: ");
-        widthSpace.setText("X: ");
-        nameStrip.setText("");
+        welcome.setText("Graph of History");
+        heightSpace.setText("Low: ");//TO-DO Add dynamic item low value
+        widthSpace.setText("High: ");//TO-DO Add dynamic item high value
+        nameStrip.setText("");//TO-DO Add dynamic items tags here
 
        
         EastFooter.add(tabbedPane);
