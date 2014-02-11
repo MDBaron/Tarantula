@@ -51,14 +51,16 @@ public class UserInterface extends JPanel implements ActionListener, MouseListen
 	private JButton Right = new JButton(">");
 	private JButton Home = new JButton("Home");
 	
-	private JButton NorthWest = new JButton("NW");
-	private JButton North = new JButton("N");
-	private JButton NorthEast = new JButton("NE");
-	private JButton West = new JButton("W");
-	private JButton East = new JButton("E");
-	private JButton SouthWest = new JButton("SW");
-	private JButton South = new JButton("S");
-	private JButton SouthEast = new JButton("SE");
+	/*
+	private JButton NorthWest = new JButton("1");
+	private JButton North = new JButton("2");
+	private JButton NorthEast = new JButton("3");
+	private JButton West = new JButton("4");
+	private JButton East = new JButton("5");
+	private JButton SouthWest = new JButton("6");
+	private JButton South = new JButton("7");
+	private JButton SouthEast = new JButton("8");
+	*/
 	
 	private javax.swing.Timer timer = new javax.swing.Timer(10,this);
 	
@@ -179,10 +181,10 @@ public void splash(){
         
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         
-        Canvas squib = new Canvas();
+       /* Canvas squib = new Canvas(); */
         
         //canvas.setBackground(Color.blue);
-        squib.setBackground(Color.blue);
+       /* squib.setBackground(Color.blue); */
         
         
         //set size of containers
@@ -192,13 +194,14 @@ public void splash(){
         WestHeader.setPreferredSize(new Dimension(560,80));
         WestFooter.setPreferredSize(new Dimension(560,80));
         canvas.setPreferredSize(new Dimension());
-        squib.setPreferredSize(new Dimension(400,500));
+        /*squib.setPreferredSize(new Dimension(400,500)); */
         EastHeader.setPreferredSize(new Dimension(1750,875));
         EastFooter.setPreferredSize(new Dimension(1750,875));
         this.setMinimumSize(new Dimension(350,350));
         
         //set button sizes
         
+        /*
         NorthWest.setPreferredSize(new Dimension(50,50));
         North.setPreferredSize(new Dimension(50,50));
         NorthEast.setPreferredSize(new Dimension(50,50));
@@ -207,9 +210,12 @@ public void splash(){
         SouthWest.setPreferredSize(new Dimension(50,50));
         South.setPreferredSize(new Dimension(50,50));
         SouthEast.setPreferredSize(new Dimension(50,50));
+        */
         
         Font f = new Font(Font.SANS_SERIF, 8, 10);
         
+        
+        /*
         NorthWest.setFont(f);
         North.setFont(f);
         NorthEast.setFont(f);
@@ -218,6 +224,8 @@ public void splash(){
         SouthWest.setFont(f);
         South.setFont(f);
         SouthEast.setFont(f);
+        */
+        
         
         this.setMaximumSize(new Dimension(3000,3000));
         
@@ -243,6 +251,7 @@ public void splash(){
         contentPaneEast.add(EastHeader,BorderLayout.NORTH);
         contentPaneEast.add(EastFooter,BorderLayout.SOUTH);
         
+        /*
         WestHeader.add(NorthWest,BorderLayout.WEST);
         WestHeader.add(North,BorderLayout.CENTER);
         WestHeader.add(NorthEast,BorderLayout.EAST);
@@ -252,6 +261,8 @@ public void splash(){
         WestFooter.add(SouthWest,BorderLayout.WEST);
         WestFooter.add(South,BorderLayout.CENTER);
         WestFooter.add(SouthEast,BorderLayout.EAST);
+        */
+        
         
         contentPaneWest.setBorder(BorderFactory.createLineBorder(Color.black));
         contentPaneEast.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -265,6 +276,7 @@ public void splash(){
 
        
         EastFooter.add(tabbedPane);
+        /*
         North.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
@@ -328,6 +340,8 @@ public void splash(){
 
     		} // actionPerformed
     	    }); // actionListener
+        
+        */
         
         Home.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
@@ -400,7 +414,7 @@ public void splash(){
 	
 	
 public static void createAndShowGUI() {
-	JFrame gframe = new JFrame("Proto Viewer");
+	JFrame gframe = new JFrame("Guild Wars 2 Market Crawler");
 	gframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	UserInterface proto = new UserInterface(3500,3500,"PsuedoViewer");
