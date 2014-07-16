@@ -7,7 +7,8 @@ public class Driver {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			    public void run() {
-				
+				//DatabasePlug plug = new DatabasePlug();
+				//plug.establishConnection();
 			    UserInterface.createAndShowGUI();
 			}//run
 			}); // while

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package crawler;
 
 /**
@@ -37,39 +34,42 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.text.Style;
 import javax.swing.JTabbedPane;
+import javax.swing.Timer;
 
 public class UserInterface extends JPanel implements ActionListener, MouseListener, MouseMotionListener{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	//private JButton quitButton = new JButton("Quit");
-	//private JButton toggle = new JButton("Layer");
+	private static final long serialVersionUID = 5414314250919303532L;
 	
+	//Operational buttons
+	private JButton quitButton = new JButton("Quit");
+	private JButton toggle = new JButton("Layer");
 	private JButton Left = new JButton("<");
 	private JButton Right = new JButton(">");
 	private JButton Home = new JButton("Home");
+	private JButton One = new JButton("1");
+	private JButton Two = new JButton("2");
+	private JButton Three = new JButton("3");
+	private JButton Four = new JButton("4");
+	private JButton Five = new JButton("5");
+	private JButton Six = new JButton("6");
+	private JButton Seven = new JButton("7");
+	private JButton Eight = new JButton("8");
 	
-	/*
-	private JButton NorthWest = new JButton("1");
-	private JButton North = new JButton("2");
-	private JButton NorthEast = new JButton("3");
-	private JButton West = new JButton("4");
-	private JButton East = new JButton("5");
-	private JButton SouthWest = new JButton("6");
-	private JButton South = new JButton("7");
-	private JButton SouthEast = new JButton("8");
-	*/
+	//Redraw Timer for use with canvas and graph elements
+	private Timer timer = new Timer(10,this);
 	
-	private javax.swing.Timer timer = new javax.swing.Timer(10,this);
-	
-	int xPos;
-	int yPos;
+	//Deprecated, but may still be useful
+	private int xPos;
+	private int yPos;
     private int height = 0;
     private int width = 0;
     private String name = "";
     
+    //Begin building menu bar
+    private JMenu Settings = new JMenu("Settings");
+    private JMenu History = new JMenu("History");
+    private JMenu About = new JMenu("About");
+    private JMenuBar menuBar = new JMenuBar();
     private JMenuItem openItem;
     private JMenuItem exitItem;
     
@@ -78,9 +78,11 @@ public class UserInterface extends JPanel implements ActionListener, MouseListen
     private JLabel widthSpace = new JLabel(" ");
     private JLabel coordsXY = new JLabel("X:  Y:  ");
     private JLabel nameStrip = new JLabel("Starter Model");
-    
-    JMenuBar mbar = new JMenuBar();
-	
+    /*
+	menuBar.add(Settings);
+	menuBar.add(History);
+	menuBar.add(About);
+	*/
     
     
 	public UserInterface(int x, int y, String s){
@@ -171,7 +173,7 @@ public void splash(){
         
         JComponent panel4 = makeTextPanel(
                 "Panel #4 (has a preferred size of 410 x 50).");
-        panel4.setPreferredSize(new Dimension(410, 50));
+       // panel4.setPreferredSize(new Dimension(410, 50));
         tabbedPane.addTab("Tab 4", icon, panel4,
                 "Does nothing at all");
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
@@ -181,58 +183,59 @@ public void splash(){
         
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         
-       /* Canvas squib = new Canvas(); */
+       
         
-        //canvas.setBackground(Color.blue);
-       /* squib.setBackground(Color.blue); */
+       canvas.setBackground(Color.blue);
         
         
         //set size of containers
-       // contentPaneWest.setPreferredSize(new Dimension(750,1750));
-       // contentPaneEast.setPreferredSize(new Dimension(750,1750));
+        contentPaneWest.setPreferredSize(new Dimension(750,1750));
+        contentPaneEast.setPreferredSize(new Dimension(750,1750));
         
         WestHeader.setPreferredSize(new Dimension(560,80));
         WestFooter.setPreferredSize(new Dimension(560,80));
         canvas.setPreferredSize(new Dimension());
-        /*squib.setPreferredSize(new Dimension(400,500)); */
+        //squib.setPreferredSize(new Dimension(400,500));
         EastHeader.setPreferredSize(new Dimension(1750,875));
         EastFooter.setPreferredSize(new Dimension(1750,875));
         this.setMinimumSize(new Dimension(350,350));
         
         //set button sizes
         
-        /*
-        NorthWest.setPreferredSize(new Dimension(50,50));
-        North.setPreferredSize(new Dimension(50,50));
-        NorthEast.setPreferredSize(new Dimension(50,50));
-        West.setPreferredSize(new Dimension(50,50));
-        East.setPreferredSize(new Dimension(50,50));
-        SouthWest.setPreferredSize(new Dimension(50,50));
-        South.setPreferredSize(new Dimension(50,50));
-        SouthEast.setPreferredSize(new Dimension(50,50));
-        */
+      
+        One.setPreferredSize(new Dimension(50,50));
+        Two.setPreferredSize(new Dimension(50,50));
+        Three.setPreferredSize(new Dimension(50,50));
+        Four.setPreferredSize(new Dimension(50,50));
+        Five.setPreferredSize(new Dimension(50,50));
+        Six.setPreferredSize(new Dimension(50,50));
+        Seven.setPreferredSize(new Dimension(50,50));
+        Eight.setPreferredSize(new Dimension(50,50));
+        
         
         Font f = new Font(Font.SANS_SERIF, 8, 10);
         
         
-        /*
-        NorthWest.setFont(f);
-        North.setFont(f);
-        NorthEast.setFont(f);
-        West.setFont(f);
-        East.setFont(f);
-        SouthWest.setFont(f);
-        South.setFont(f);
-        SouthEast.setFont(f);
-        */
+       
+        One.setFont(f);
+        Two.setFont(f);
+        Three.setFont(f);
+        Four.setFont(f);
+        Five.setFont(f);
+        Six.setFont(f);
+        Seven.setFont(f);
+        Eight.setFont(f);
+        
         
         
         this.setMaximumSize(new Dimension(3000,3000));
         
+       // EastFooter.add(tabbedPane);
+        
         //set layout for containers
         this.setLayout(new BorderLayout());
         contentPaneWest.setLayout(new BorderLayout());
-        contentPaneEast.setLayout(new BorderLayout());
+        //contentPaneEast.setLayout(new BorderLayout());
         
         canvas.setLayout(new BorderLayout());
         WestHeader.setLayout(new BorderLayout());
@@ -244,24 +247,24 @@ public void splash(){
         this.add(contentPaneWest,BorderLayout.WEST);
         this.add(contentPaneEast,BorderLayout.EAST);
         
-        contentPaneWest.add(WestHeader,BorderLayout.NORTH);
         contentPaneWest.add(canvas,BorderLayout.CENTER);
-        contentPaneWest.add(WestFooter,BorderLayout.SOUTH);
         
-        contentPaneEast.add(EastHeader,BorderLayout.NORTH);
-        contentPaneEast.add(EastFooter,BorderLayout.SOUTH);
+        //contentPaneWest.add(WestHeader,BorderLayout.NORTH);
+       // contentPaneWest.add(WestFooter,BorderLayout.SOUTH);
+       // contentPaneEast.add(EastHeader,BorderLayout.NORTH);
+        //contentPaneEast.add(EastFooter,BorderLayout.SOUTH);
         
-        /*
-        WestHeader.add(NorthWest,BorderLayout.WEST);
-        WestHeader.add(North,BorderLayout.CENTER);
-        WestHeader.add(NorthEast,BorderLayout.EAST);
-        canvas.add(West,BorderLayout.WEST);
-        canvas.add(squib,BorderLayout.CENTER);
-        canvas.add(East,BorderLayout.EAST);
-        WestFooter.add(SouthWest,BorderLayout.WEST);
-        WestFooter.add(South,BorderLayout.CENTER);
-        WestFooter.add(SouthEast,BorderLayout.EAST);
-        */
+        //canvas.add(squib,BorderLayout.CENTER);
+        
+        contentPaneEast.add(One);
+        contentPaneEast.add(Two);
+        contentPaneEast.add(Three);
+        contentPaneEast.add(Four);
+        contentPaneEast.add(Five);
+        contentPaneEast.add(Six);
+        contentPaneEast.add(Seven);
+        contentPaneEast.add(Eight);
+       
         
         
         contentPaneWest.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -274,17 +277,14 @@ public void splash(){
         widthSpace.setText("High: ");//TO-DO Add dynamic item high value
         nameStrip.setText("");//TO-DO Add dynamic items tags here
 
-       
-        EastFooter.add(tabbedPane);
-        /*
-        North.addActionListener(new ActionListener() {
+        One.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		    
     		} // actionPerformed
     	    }); // actionListener
         
-        South.addActionListener(new ActionListener() {
+        Two.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		   
@@ -292,7 +292,7 @@ public void splash(){
     	    }); // actionListener
         
         
-        East.addActionListener(new ActionListener() {
+        Three.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		   
@@ -300,7 +300,7 @@ public void splash(){
     		} // actionPerformed
     	    }); // actionListener
         
-        West.addActionListener(new ActionListener() {
+        Four.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		   
@@ -309,7 +309,7 @@ public void splash(){
     	    }); // actionListener
         
         
-        NorthWest.addActionListener(new ActionListener() {
+        Five.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		  
@@ -317,7 +317,7 @@ public void splash(){
     		} // actionPerformed
     	    }); // actionListener
         
-        NorthEast.addActionListener(new ActionListener() {
+        Six.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     			
@@ -325,7 +325,7 @@ public void splash(){
     		} // actionPerformed
     	    }); // actionListener
         
-        SouthWest.addActionListener(new ActionListener() {
+        Seven.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		   
@@ -333,7 +333,7 @@ public void splash(){
     		} // actionPerformed
     	    }); // actionListener
         
-        SouthEast.addActionListener(new ActionListener() {
+        Eight.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
 
     		   
@@ -341,7 +341,7 @@ public void splash(){
     		} // actionPerformed
     	    }); // actionListener
         
-        */
+       
         
         Home.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
